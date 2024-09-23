@@ -6,6 +6,8 @@ import (
 	"net/http"
 )
 
+const portNumber = ":8080"
+
 // Home page handler
 func Home (w http.ResponseWriter, r *http.Request){
 	fmt.Fprintf(w, "This is the home page")
@@ -27,13 +29,12 @@ func main() {
 	http.HandleFunc("/", Home)
 	http.HandleFunc("/about", About)
 
-	println("Starting server on :8080")
-
+	fmt.Println(fmt.Sprintf("Starting server on port %s", portNumber))
 	// ListenAndServe will block, so handle the error if it fails
-	err := http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(portNumber, nil)
 	if err != nil {
 		log.Fatalf("Server failed: %s\n", err)
 	}
 
-	println("This will only print if the server stops unexpectedly.")
+	fmt.Println("This will only print if the server stops unexpectedly.")
 }
