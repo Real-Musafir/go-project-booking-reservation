@@ -4,13 +4,15 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/alshahadath/go-web/pkg/handlers"
 )
 
 const portNumber = ":8080"
 
 func main() {
-	http.HandleFunc("/", Home)
-	http.HandleFunc("/about", About)
+	http.HandleFunc("/", handlers.Home)
+	http.HandleFunc("/about", handlers.About)
 
 	fmt.Println(fmt.Sprintf("Starting server on port %s", portNumber))
 	// ListenAndServe will block, so handle the error if it fails
