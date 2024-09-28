@@ -1,15 +1,15 @@
-{{template "base" .}}
+{{template "base" .}} {{define "content"}}
+<div class="container">
+  <div class="row"></div>
+  <div class="col">
+    <h1>This is about page</h1>
+    <h1>This is some text</h1>
+    <p>this the paragraph of textasdfsdf</p>
 
-{{define "content"}}
-<div class="container"></div>
-      <div class="row">
-        <div class="col">
-          <h1>This is about page</h1>
-          <h1>This is some text</h1>
-          <P>this the paragraph of textasdfsdf</P>
-        </div>
-      </div>
-    </div>
+    <p>This can from the template: {{index .StringMap "test"}}</p>
+  </div>
+</div>
+</div>
 
 
 {{end}}

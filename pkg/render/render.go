@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 
 	"github.com/alshahadath/go-web/pkg/config"
+	"github.com/alshahadath/go-web/pkg/models"
 )
 
 
@@ -23,7 +24,7 @@ func NewTemplate(a *config.AppConfig){
 }
 
 //RenderTemplate renders templates using html/temp
-func RenderTemplate(w http.ResponseWriter, tmpl string){
+func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData){
 	var tc map[string]*template.Template
 	if app.UseCache {
 		tc = app.TemplateCache
@@ -41,7 +42,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string){
 
 	buf := new(bytes.Buffer)
 
-	_= t.Execute(buf, nil)
+	_= t.Execute(buf, td)
 
 	_, err := buf.WriteTo(w)
 	if err != nil {

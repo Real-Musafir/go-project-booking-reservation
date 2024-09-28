@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/alshahadath/go-web/pkg/config"
+	"github.com/alshahadath/go-web/pkg/models"
 	"github.com/alshahadath/go-web/pkg/render"
 )
 
@@ -29,11 +30,16 @@ func NewHandlers(r *Repository) {
 
 // Home page handler
 func (m *Repository)  Home (w http.ResponseWriter, r *http.Request){
-	render.RenderTemplate(w, "home.page.html")
+	render.RenderTemplate(w, "home.page.html", &models.TemplateData{})
 }
 
 // Anout page handler
 func (m *Repository) About (w http.ResponseWriter, r *http.Request){
-	render.RenderTemplate(w, "about.page.html")
+
+	stringMap := make(map[string]string)
+	stringMap["test"] = "Hello, again."
+	render.RenderTemplate(w, "about.page.html", &models.TemplateData{
+		StringMap: stringMap,
+	})
 }
 
