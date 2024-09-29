@@ -4,16 +4,30 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
+	"github.com/alexedwards/scs/v2"
 	"github.com/alshahadath/go-web/pkg/config"
 	"github.com/alshahadath/go-web/pkg/handlers"
 	"github.com/alshahadath/go-web/pkg/render"
 )
 
 const portNumber = ":8080"
+var app config.AppConfig
+var session *scs.SessionManager
 
 func main() {
-	var app config.AppConfig
+	// change this to true when in production
+	app.InProduction = false
+
+	session = scs.New()
+	session.Lifetime = 24 * time.Hour
+	session.Cookie.Persist = true ///if close the browser then session should be deleted
+	session.Cookie.SameSite = http.SameSiteLaxMode
+	session.Cookie.Secure = app.InProduction /// In production it should be true as in production it should be https
+
+	app.Session = session
+
 
 	tc, err := render.CreateTemplateCache()
 	if err!=nil {
