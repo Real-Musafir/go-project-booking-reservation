@@ -7,6 +7,15 @@
     <p>this the paragraph of textasdfsdf</p>
 
     <p>This can from the template: {{index .StringMap "test"}}</p>
+
+    <p>
+      {{if ne (index .StringMap "remote_ip") ""}}
+        Your remote Ip address is {{ index .StringMap "remote_ip"}}
+      {{else }}
+      I don't know your ip address yet. Visit the <a href="/" >Home page</a> so I can set it
+      {{end}}
+      
+    </p>
   </div>
 </div>
 </div>
