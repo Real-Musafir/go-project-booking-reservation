@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/alshahadath/go-web/pkg/config"
-	"github.com/alshahadath/go-web/pkg/models"
-	"github.com/alshahadath/go-web/pkg/render"
+	"github.com/Real-Musafir/go-project-booking-reservation/pkg/config"
+	"github.com/Real-Musafir/go-project-booking-reservation/pkg/models"
+	"github.com/Real-Musafir/go-project-booking-reservation/pkg/render"
 )
 
 // Repo the repository used by the handlers

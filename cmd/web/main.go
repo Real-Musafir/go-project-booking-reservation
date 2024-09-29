@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/Real-Musafir/go-project-booking-reservation/pkg/config"
+	"github.com/Real-Musafir/go-project-booking-reservation/pkg/handlers"
+	"github.com/Real-Musafir/go-project-booking-reservation/pkg/render"
 	"github.com/alexedwards/scs/v2"
-	"github.com/alshahadath/go-web/pkg/config"
-	"github.com/alshahadath/go-web/pkg/handlers"
-	"github.com/alshahadath/go-web/pkg/render"
 )
 
 const portNumber = ":8080"
