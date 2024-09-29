@@ -13,6 +13,7 @@ import (
 func routes(app *config.AppConfig) http.Handler {
 
 	mux := chi.NewRouter()
+	mux.Use(WriteToConsole)
 
 	// Recoverer is a middleware that recovers from panics, logs the panic
 	mux.Use(middleware.Recoverer)
