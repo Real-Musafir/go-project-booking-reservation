@@ -67,26 +67,38 @@
   <div class="container">
 
     <div class="row">
-      <div class="col">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
         <h1 class="mt-5">Search for Availability</h1>
 
         <form action="reservation.html" method="get">
 
-          <div class="form-group">
-            <label for="start_date">Starting Date</label>
-            <input type="date" class="form-control" id="start_date" name="start-date" aria-describedby="startDateHelp">
-            <small id="startDateHelp" class="form-text text-muted">Enter your starting date in the form of YYYY-MM-DD.</small>
+          <div class="form-row">
+            <div class="col" >
+              <div class="form-group">
+              <label for="start_date">Starting Date</label>
+              <input required type="date" class="form-control" id="start_date" name="start-date"
+                aria-describedby="startDateHelp">
+              <small id="startDateHelp" class="form-text text-muted">Enter your starting date in the form of
+                YYYY-MM-DD.</small>
+            </div>
+            </div>
+
+            <div class="col" >
+              <div class="form-group">
+              <label for="end_date">Starting Date</label>
+              <input required type="date" class="form-control" id="end_date" name="end-date" aria-describedby="endDateHelp">
+              <small id="endDateHelp" class="form-text text-muted">Enter your ending date in the form of
+                YYYY-MM-DD.</small>
+            </div>
+            </div>
           </div>
 
-           <div class="form-group">
-            <label for="end_date">Starting Date</label>
-            <input type="date" class="form-control" id="end_date" name="end-date" aria-describedby="endDateHelp">
-            <small id="endDateHelp" class="form-text text-muted">Enter your ending date in the form of YYYY-MM-DD.</small>
-          </div>
 
-       
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+
+
+          <button type="submit" class="btn btn-primary">Search Availability</button>
         </form>
       </div>
     </div>
