@@ -102,7 +102,7 @@
       </div>
     </div>
 
-    <button id="colorButton" >Click me</button>
+    <button id="colorButton">Click me</button>
 
 
   </div>
@@ -145,6 +145,8 @@
 
   <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
+    let attention = Promt();
+
     (function () {
       'use strict';
       window.addEventListener('load', function () {
@@ -164,7 +166,10 @@
     })();
 
     document.getElementById("colorButton").addEventListener("click", function () {
-      notifyModal("Title", "<em>Hello, World</em>", 'success', "My text for the buttton")
+      // notifyModal("Title", "<em>Hello, World</em>", 'success', "My text for the buttton")
+      // attention.toast({msg: "Hello, World", icon: "error"})
+      // attention.success({msg: "Hello, World", })
+      attention.error({msg: "OPs", })
     })
 
 
@@ -176,12 +181,58 @@
     }
 
     function notifyModal(title, text, icon, confirmButtonText) {
-        Swal.fire({
+      Swal.fire({
         title: title,
         html: text,
         icon: icon,
         confirmButtonText: confirmButtonText
       })
+    }
+
+    function Promt() {
+      let toast = function (c) {
+        const { msg="", icon = "success", position="top-end" } = c
+        const Toast = Swal.mixin({
+          toast: true,
+          title:msg,
+          position: position,
+          icon:icon,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({});
+      }
+
+      let success = function (c) {
+        const { msg="", title="", footer="" } = c
+        Swal.fire({
+          icon: "success",
+          title: title,
+          text: msg,
+          footer: footer
+        });
+      }
+
+      let error = function (c) {
+        const { msg="", title="", footer="" } = c
+        Swal.fire({
+          icon: "error",
+          title: title,
+          text: msg,
+          footer: footer
+        });
+      }
+
+      return {
+        toast: toast,
+        success: success,
+        error: error
+      }
     }
 
   </script>
