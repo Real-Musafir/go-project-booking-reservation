@@ -102,6 +102,7 @@
       </div>
     </div>
 
+    <button id="colorButton" >Click me</button>
 
 
   </div>
@@ -138,6 +139,8 @@
 
   <script src="https://unpkg.com/notie"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
   <script>
@@ -160,11 +163,24 @@
       }, false);
     })();
 
+    document.getElementById("colorButton").addEventListener("click", function () {
+      notifyModal("Title", "<em>Hello, World</em>", 'success', "My text for the buttton")
+    })
+
 
     function notify(msg, msgType) {
       notie.alert({
         type: "success",
         text: msgType,
+      })
+    }
+
+    function notifyModal(title, text, icon, confirmButtonText) {
+        Swal.fire({
+        title: title,
+        html: text,
+        icon: icon,
+        confirmButtonText: confirmButtonText
       })
     }
 
