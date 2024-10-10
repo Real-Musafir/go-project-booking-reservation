@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/Real-Musafir/go-project-booking-reservation/pkg/config"
-	"github.com/Real-Musafir/go-project-booking-reservation/pkg/handlers"
+	"github.com/Real-Musafir/go-project-booking-reservation/internal/config"
+	"github.com/Real-Musafir/go-project-booking-reservation/internal/handlers"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
