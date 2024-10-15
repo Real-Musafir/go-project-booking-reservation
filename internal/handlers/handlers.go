@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/Real-Musafir/go-project-booking-reservation/internal/config"
+	"github.com/Real-Musafir/go-project-booking-reservation/internal/forms"
 	"github.com/Real-Musafir/go-project-booking-reservation/internal/models"
 	"github.com/Real-Musafir/go-project-booking-reservation/internal/render"
 )
@@ -57,7 +58,14 @@ func (m *Repository) About (w http.ResponseWriter, r *http.Request){
 
 // Reservation renders the make a reservation page and displays form
 func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, r, "make-reservation.page.html", &models.TemplateData{})
+	render.RenderTemplate(w, r, "make-reservation.page.html", &models.TemplateData{
+		Form: forms.New(nil),
+	})
+}
+
+// PostReservation hanldes the posting of a reservation form
+func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
+	
 }
 
 // Generals renders the room page
