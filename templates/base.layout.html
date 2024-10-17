@@ -149,8 +149,8 @@
 
       function notify(msg, msgType) {
         notie.alert({
-          type: "success",
-          text: msgType,
+          type: msgType,
+          text: msg,
         })
       }
 
@@ -162,6 +162,26 @@
           confirmButtonText: confirmButtonText
         })
       }
+
+      
+
+      let error = "{{.Error}}";
+      if (error) {
+        notify(error, "error")
+      }
+
+      let flash = "{{.Flash}}";
+      if (flash) {
+        notify(error, "success")
+      }
+
+      let warning = "{{.Warning}}";
+      if (warning) {
+        notify(warning, "warning")
+      }
+
+
+      
 
       function Promt() {
         let toast = function (c) {
